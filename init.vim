@@ -9,6 +9,9 @@ syntax on
 filetype plugin on
 filetype plugin indent on
 
+let g:indentLine_setColors = 0
+let g:indentLine_color_term = 400
+
 set shiftwidth=2
 set softtabstop=2
 set expandtab
@@ -49,6 +52,9 @@ let g:UltiSnipsExpandTrigger="<tab>"
 " let g:UltiSnipsJumpForwardTrigger="<c-j>"
 " let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
+" Render apiary using ctrl + y
+autocmd FileType apiblueprint nnoremap <C-A-y> :call GenerateRefract()<cr>
+
 " Load the snippets
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippets"]
 
@@ -72,7 +78,7 @@ let g:NERDDefaultAlign = 'left'
 "
 " " Set a language to use its alternate delimiters by default
 let g:NERDAltDelims_java = 1
-"
+
 " " Add your own custom formats or override the defaults
 let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 "
@@ -107,6 +113,8 @@ let g:NERDTrimTrailingWhitespace = 1
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
+let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
 
 " syntatic using eslint
 set statusline+=%#warningmsg#
@@ -192,6 +200,7 @@ Plug 'mattn/emmet-vim', { 'for': ['javascript.jsx', 'html', 'css'] }
 Plug 'isRuslan/vim-es6'
 Plug 'rakr/vim-one'
 Plug 'kylef/apiblueprint.vim'
+Plug 'Yggdroot/indentLine'
 
 call plug#end()
 
