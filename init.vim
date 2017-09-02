@@ -164,18 +164,41 @@ highlight link SyntasticStyleWarningSign SignColumn
 noremap <C-w>e :SyntasticCheck<CR>
 noremap <C-w>f :SyntasticToggleMode<CR>
 
-" $HOME/.vimrc
+" set directory for swapfile $HOME/.vimrc
 :set directory=$HOME/.vim/swapfiles/
+
+" elm setting
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+
+let g:elm_syntastic_show_warnings = 1
 
 " Set theme for status bar
 let g:airline_theme='minimalist'
 let g:airline_powerline_fonts = 1
 
+" Set emmet with work with jsx
+" use ctrl + y + , 
 let g:user_emmet_settings = {
 \  'javascript.jsx' : {
 \      'extends' : 'jsx',
+\      'quote_char': '"'
 \  },
 \}
+
+let g:flow#enable = 0
+
+" Set auto indent when enter
+imap <C-Return> <CR><CR><C-o>k<Tab>
+
+" Define some single Blade directives. This variable is used for highlighting only.
+let g:blade_custom_directives = ['datetime', 'javascript']
+
+" Define pairs of Blade directives. This variable is used for highlighting and indentation.
+let g:blade_custom_directives_pairs = {
+      \   'markdown': 'endmarkdown',
+      \   'cache': 'endcache',
+      \ }
 
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeTabsToggle' }
@@ -190,7 +213,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
-" Plug 'mxw/vim-jsx', { 'for': 'jsx' }
 Plug 'jistr/vim-nerdtree-tabs',  { 'on': 'NERDTreeTabsToggle' }
 Plug 'wakatime/vim-wakatime'
 Plug 'vim-airline/vim-airline'
@@ -201,6 +223,15 @@ Plug 'isRuslan/vim-es6'
 Plug 'rakr/vim-one'
 Plug 'kylef/apiblueprint.vim'
 Plug 'Yggdroot/indentLine'
+Plug 'elmcast/elm-vim'
+Plug 'mxw/vim-jsx'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'othree/html5.vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'mattn/emmet-vim'
+Plug 'flowtype/vim-flow'
+Plug 'jwalton512/vim-blade'
 
 call plug#end()
 
