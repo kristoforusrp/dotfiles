@@ -251,6 +251,6 @@ if (empty($TMUX))
     set termguicolors
   endif
 endif
-
+#####hellele
 colorscheme one
 
